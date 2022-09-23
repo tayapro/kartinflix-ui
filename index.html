@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <!-- <script src="index.js"></script> -->
+    <head>
+        <title>kartinflix</title>
+    </head>
+    <body>
+        <div id="div_login_register">
+            <label id="label_login" for="login">login:</label><br>
+            <input type="text" id="login" name="login" value=""><br>
+            <label id="label_password" for="password">password:</label><br>
+            <input type="text" id="pwd" name="pwd" value=""><br><br>
+            <button id="button_login" onclick="login();">LOGIN</button>
+            <button id="button_register" onclick="register();">REGISTER</button>
+        </div>
+        <div id="div_username_logout" style="display:none">
+            <p id="username"></p>
+            <button id="button_logout" onclick="logout();">LOG OUT</button>
+        </div>
+        
+        <div id="div_picture" style="display:none">
+            <ul id="list_pictures">
+            </ul> 
+            <p id="GetPictureResult"></p>
+            <img id="ItemPreview" src="">
+        </div>
+    </body>
+    <script src="index.js?kkk"></script>
+</html>
