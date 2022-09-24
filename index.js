@@ -1,6 +1,7 @@
 async function register() {
     localStorage.clear()
     document.getElementById('ItemPreview').src = ''
+    document.getElementById('div_picture').style.display = 'none'
 
     let login = document.getElementById('login').value
     let password = document.getElementById('pwd').value
@@ -20,14 +21,13 @@ async function register() {
     document.getElementById('username').innerHTML = result.username
     //Hide buttons *login* & *register*, and fields for login/register credentials
     document.getElementById('div_login_register').style.display = 'none'
-    //Show
-    document.getElementById('div_picture').style.display = 'block'
-    document.getElementById('div_username_logout').style.display = 'block'
+    document.getElementById('div_username_logout').style.display = 'initial'
 }
 
 async function login() {
     localStorage.clear()
     document.getElementById('ItemPreview').src = ''
+    document.getElementById('div_picture').style.display = 'none'
 
     let login = document.getElementById('login').value
     let password = document.getElementById('pwd').value
@@ -52,9 +52,7 @@ async function login() {
     document.getElementById('username').innerHTML = result.username
     //Hide buttons *login* & *register*, and fields for login/register credentials
     document.getElementById('div_login_register').style.display = 'none'
-    //Show
-    document.getElementById('div_picture').style.display = 'block'
-    document.getElementById('div_username_logout').style.display = 'block'
+    document.getElementById('div_username_logout').style.display = 'initial'
 
     getPicturesList()
 }
@@ -63,9 +61,11 @@ async function logout() {
     localStorage.clear()
     document.getElementById('login').value = ''
     document.getElementById('pwd').value = ''
-    document.getElementById('div_login_register').style.display = 'block'
+    document.getElementById('div_login_register').style.display = 'initial'
     document.getElementById('div_username_logout').style.display = 'none'
     document.getElementById('div_picture').style.display = 'none'
+    document.getElementById('list_pictures').innerHTML = ''
+    document.getElementById('ItemPreview').src = ''
 }
 
 async function getPicturesList() {
@@ -91,7 +91,8 @@ async function getPicturesList() {
             throw Error(`HTTP error ${res.status}`)
         }
         const pictures = await res.json()
-        //TODO process list items div list_pictures
+        console.log(pictures)
+        //process list items div list_pictures
         var ul = document.getElementById('list_pictures')
         for (let i = 0; i < pictures.length; i++) {
             console.log(`Picture ${i} = ${pictures[i]}`)
@@ -106,7 +107,6 @@ async function getPicturesList() {
             li.appendChild(a)
             ul.appendChild(li)
         }
-        //console.log('Pictures>>>>', pictures)
     } catch (e) {
         console.log('ERROR:: ', e)
         return
@@ -116,7 +116,8 @@ async function getPicturesList() {
 async function loadPicture() {
     console.log('stipaxa', this.id)
 
-    document.getElementById('ItemPreview').style.display = 'initial'
+    document.getElementById('div_picture').style.display = 'initial'
+
     document.getElementById('ItemPreview').src = ''
 
     document.getElementById('ItemPreview').style.width = '300px'
