@@ -6,6 +6,7 @@ WORKDIR /kartinflix-ui
 
 # Copy required files to the image
 COPY index.html .
+COPY index.js .
 COPY python-server.sh .
 
 # Make port 8080 available to the world outside this container

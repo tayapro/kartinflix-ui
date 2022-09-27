@@ -18,7 +18,7 @@ async function register() {
         }),
     })
 
-    document.getElementById('username').innerHTML = result.username
+    document.getElementById('username').innerHTML = login
     //Hide buttons *login* & *register*, and fields for login/register credentials
     document.getElementById('div_login_register').style.display = 'none'
     document.getElementById('div_username_logout').style.display = 'initial'
